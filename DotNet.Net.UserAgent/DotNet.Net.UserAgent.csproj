@@ -6,16 +6,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>System.Net</RootNamespace>
-    <PackageId>MikaelDui.DotNet.Net.UserAgent</PackageId>
+    <PackageId>MikaelDui.Net.UserAgent</PackageId>
     <Authors>Mikael Dúi Bolinder</Authors>
-    <Product>MikaelDui.DotNet.Net.UserAgent</Product>
-    <Description>This project is really awesome!</Description>
+    <Product>MikaelDui.Net.UserAgent</Product>
+    <Description>Adds a User-Agent class to System.Net that can be used with HttpClient and ClientWebSocket.</Description>
     <PackageProjectUrl>https://github.com/mikaeldui/user-agent-dotnet</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>DotNet.Net.UserAgent.png</PackageIcon>
     <RepositoryUrl>https://github.com/mikaeldui/user-agent-dotnet</RepositoryUrl>
-    <PackageTags></PackageTags>
+    <PackageTags>UserAgent; HttpClient; Http; WebSockets</PackageTags>
     <PackageLicenseExpression>Unlicense</PackageLicenseExpression>
+    <AssemblyName>MikaelDui.Net.UserAgent</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
