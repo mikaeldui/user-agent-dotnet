@@ -18,7 +18,7 @@ namespace System.Net
             if (Debugger.IsAttached)
                 userAgent.Version = "Debug";
             else
-                userAgent.Version = assembly.GetProductVersion();
+                userAgent.Version = assembly.GetInformationalVersion();
 
             if (assembly == Assembly.GetEntryAssembly())
             {
