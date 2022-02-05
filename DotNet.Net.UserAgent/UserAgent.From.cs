@@ -18,7 +18,11 @@ namespace System.Net
             if (Debugger.IsAttached)
                 userAgent.Version = "Debug";
             else
-                userAgent.Version = assembly.GetInformationalVersion();
+                try
+                {
+                    userAgent.Version = assembly.GetInformationalVersion() ?? assembly.GetProductVersion();
+                }
+                catch { }
 
             if (assembly == Assembly.GetEntryAssembly())
             {
@@ -30,13 +34,11 @@ namespace System.Net
             userAgent.Comments.Add(assemblyName.ProcessorArchitecture.ToString());
 
             var frameworkVersion = assembly.GetCustomAttribute<TargetFrameworkAttribute>()?.FrameworkName;
-            if(frameworkVersion != null)
+            if (frameworkVersion != null)
                 userAgent.Comments.Add(frameworkVersion.Replace(",Version=", " "));
 
-            var metaAttributes = assembly.GetCustomAttributes<AssemblyMetadataAttribute>();
-            if (metaAttributes != null)
             {
-                var repoUrl = metaAttributes.FirstOrDefault(a => a.Key == "RepositoryUrl")?.Value;
+                var repoUrl = assembly.GetCustomAttributes<AssemblyMetadataAttribute>()?.FirstOrDefault(a => a.Key == "RepositoryUrl")?.Value;
 
                 if (repoUrl != null)
                     userAgent.Comments.Add("+" + repoUrl);
